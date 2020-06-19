@@ -11,6 +11,7 @@ import RxSwift
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var imageDetail: UIImageView!
     @IBOutlet private weak var descriptionDetail: UILabel!
@@ -25,7 +26,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        scroll.delegate = self
        getDataAndShowDetailMovie()
         //enlace del viewModel con la vista
        viewModel.bind(view: self, router: router)
@@ -61,4 +62,8 @@ class DetailViewController: UIViewController {
     }
     
 
+}
+
+extension DetailViewController: UIScrollViewDelegate {
+    
 }
